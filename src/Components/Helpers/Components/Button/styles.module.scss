@@ -1,0 +1,49 @@
+.button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+  padding: 10px 40px 10px 12px;
+  border: 1px solid var(--black-10);
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 160%;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 333ms ease;
+  span {
+    width: 320px;
+  }
+
+  &:hover {
+    border: 1px solid var(--black-20);
+  }
+  &:active {
+    border: 1px solid var(--black-20);
+  }
+}
+
+.button__icon {
+  margin-right: 12px;
+}
+
+.button_primary {
+  color: var(--accent);
+  &:hover {
+    color: var(--accent-light);
+  }
+  &:active {
+    color: var(--accent-dark);
+  }
+}
+
+.button_danger {
+  color: var(--red);
+  &:hover {
+    color: var(--red);
+  }
+  &:active {
+    color: var(--red);
+  }
+}
