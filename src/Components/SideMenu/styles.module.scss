@@ -1,0 +1,26 @@
+.menu,
+.menu__block {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu {
+  justify-content: space-between;
+  background-color: var(--accent);
+  height: 100%;
+}
+
+.menu__link {
+  padding: 20px 14px;
+  transition: all 100ms ease;
+  &:hover {
+    background-color: var(--accent-light);
+  }
+  &:active {
+    background-color: var(--accent-dark);
+  }
+}
+
+.menu__link_active {
+  background-color: var(--accent-light-active);
+}

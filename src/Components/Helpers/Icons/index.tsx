@@ -2,6 +2,7 @@ import iconAdd from "../../Assets/Icons/Common/Action/Add.svg";
 import iconDelete from "../../Assets/Icons/Common/Action/Delete.svg";
 import iconEdit from "../../Assets/Icons/Common/Action/Edit.svg";
 import iconRotation from "../../Assets/Icons/Common/Arrows/Rotation.svg";
+import iconLong from "../../Assets/Icons/Common/Arrows/Long.svg";
 import iconChat from "../../Assets/Icons/Common/SideMenu/Chat.svg";
 import iconExit from "../../Assets/Icons/Common/SideMenu/Exit.svg";
 import iconHome from "../../Assets/Icons/Common/SideMenu/Home.svg";
@@ -17,6 +18,7 @@ export {
   iconDelete,
   iconEdit,
   iconRotation,
+  iconLong,
   iconChat,
   iconExit,
   iconHome,

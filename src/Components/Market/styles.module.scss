@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-bottom: 1px solid var(--black-10);
+}
+
+.header__link {
+  display: flex;
+  align-items: center;
+  color: var(--accent);
+  font-size: 1rem;
+  line-height: 1.25rem;
+  padding: 26px 0;
+  transition: all 333ms ease;
+  span {
+    text-transform: uppercase;
+    margin-left: 1rem;
+  }
+  &:hover {
+    color: var(--accent-light);
+  }
+  &:active {
+    color: var(--accent-dark);
+  }
+}
+
+.header__icon-bar {
+  display: flex;
+  align-items: center;
+}
+
+.header__icon-button {
+  padding: 0.75rem;
+  border: 1px solid var(--white);
+  border-radius: 2px;
+  background-color: var(--white);
+  cursor: pointer;
+  transition: all 222ms ease;
+  &:hover {
+    border-color: var(--black-10);
+  }
+  &:active {
+    border-color: var(--black-30);
+  }
+}

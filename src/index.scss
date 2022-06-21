@@ -2,6 +2,7 @@
   --accent: #82b284;
   --accent-dark: #58a742;
   --accent-light: #98c88c;
+  --accent-light-active: #a4c7a5;
   --black-90: #222222;
   --black-75: #3b3b3b;
   --black-50: #808080;
@@ -32,7 +33,6 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-  line-height: 1.42;
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -66,4 +66,20 @@ h5,
 h6 {
   margin: 0;
   font-weight: 700;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+  white-space: pre-line;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.wrapper,
+.content {
+  flex-grow: 1;
+  position: relative;
 }
