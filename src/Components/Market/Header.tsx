@@ -29,19 +29,19 @@ const Header = () => {
           onClick={() => handleButtonClick("Linked")}
           className={cn("header__icon-button")}
         >
-          <img src={iconLinked} alt="icon" />
+          <img src={iconLinked} alt="link" />
         </button>
         <button
           onClick={() => handleButtonClick("Rotation")}
           className={cn("header__icon-button")}
         >
-          <img src={iconRotation} alt="icon" />
+          <img src={iconRotation} alt="rotate" />
         </button>
         <button
           onClick={() => handleButtonClick("Delete")}
           className={cn("header__icon-button")}
         >
-          <img src={iconDelete} alt="icon" />
+          <img src={iconDelete} alt="delete" />
         </button>
       </div>
     </header>
