@@ -10,7 +10,8 @@ interface IButton {
   variant: string;
   icon?: keyof typeof icons;
   onClick?: () => void;
-  classNames?: string;
+  className?: string;
+  type?: "submit" | "reset";
 }
 
 const icons = {
@@ -29,14 +30,20 @@ const icons = {
 };
 
 const Button: FC<IButton> = (props) => {
-  const { text, variant, icon, onClick, classNames: classes } = props;
+  const { text, variant, icon, onClick, className, type } = props;
   const cn = classNames.bind(styles);
 
-  const rootClasses = classes ? ["button", ...classes.split(" ")] : ["button"];
+  const rootClasses = className
+    ? ["button", ...className.split(" ")]
+    : ["button"];
   if (variant) rootClasses.push(`button_${variant}`);
 
   return (
-    <button onClick={onClick && onClick} className={cn(rootClasses)}>
+    <button
+      type={type && type}
+      onClick={onClick && onClick}
+      className={cn(rootClasses)}
+    >
       {icon && (
         <img
           className={cn("button__icon")}

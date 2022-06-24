@@ -6,25 +6,27 @@ import Title from "./Title";
 
 interface IInfoBlock {
   title: string;
+  data: any;
 }
-const InfoBlock = ({ title }: IInfoBlock) => {
+
+interface IDataItem {
+  key: string;
+  value: string;
+}
+
+const InfoBlock = ({ title, data }: IInfoBlock) => {
   const cn = classNames.bind(styles);
   return (
     <div className={cn("info-block")}>
       <Title variant="light" text={title} />
       <ul className={cn("info-block__list")}>
-        <li className={cn("info-block__list-item")}>
-          <span>Полное название:</span>
-          <p>ООО Фирма “Перспективные захоронения”</p>
-        </li>
-        <li className={cn("info-block__list-item")}>
-          <span>Полное название:</span>
-          <p>ООО Фирма “Перспективные захоронения”</p>
-        </li>
-        <li className={cn("info-block__list-item")}>
-          <span>Полное название:</span>
-          <p>ООО Фирма “Перспективные захоронения”</p>
-        </li>
+        {data &&
+          data.map((item: IDataItem, key: number) => (
+            <li key={key} className={cn("info-block__list-item")}>
+              <span>{item.key}</span>
+              <p>{item.value}</p>
+            </li>
+          ))}
       </ul>
     </div>
   );

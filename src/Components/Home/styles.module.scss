@@ -1,0 +1,30 @@
+.title {
+  margin: 12px 0;
+}
+
+.form {
+  display: flex;
+
+  .form__button {
+    margin-left: 12px;
+  }
+}
+
+.hints {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  padding: 1rem;
+}
+
+.hint {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:before {
+    content: "—";
+    margin-right: 0.5rem;
+  }
+}

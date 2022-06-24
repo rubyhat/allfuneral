@@ -43,7 +43,7 @@ const Title: FC<ITitle> = ({ variant, text, label }) => {
         <div className={cn("title__edit")}>
           <Input value={value} setValue={setValue} label={label} />
           <Button
-            classNames={cn("title__edit-button")}
+            className={cn("title__edit-button")}
             onClick={() => setIsEditing(false)}
             text="Сохранить"
             variant="primary"
