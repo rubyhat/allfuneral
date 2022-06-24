@@ -9,6 +9,8 @@ interface IButton {
   text: string;
   variant: string;
   icon?: keyof typeof icons;
+  onClick?: () => void;
+  classNames?: string;
 }
 
 const icons = {
@@ -27,14 +29,14 @@ const icons = {
 };
 
 const Button: FC<IButton> = (props) => {
-  const { text, variant, icon } = props;
+  const { text, variant, icon, onClick, classNames: classes } = props;
   const cn = classNames.bind(styles);
 
-  const rootClasses = ["button"];
+  const rootClasses = classes ? ["button", ...classes.split(" ")] : ["button"];
   if (variant) rootClasses.push(`button_${variant}`);
 
   return (
-    <button className={cn(rootClasses)}>
+    <button onClick={onClick && onClick} className={cn(rootClasses)}>
       {icon && (
         <img
           className={cn("button__icon")}
