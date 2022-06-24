@@ -52,12 +52,28 @@
     padding: 0 12px;
     background-color: var(--white);
     border: none;
+    cursor: pointer;
+    transition: all 333ms ease;
+    &:hover {
+      opacity: 0.75;
+    }
   }
 }
 
-.title_semi-bold {
+.title_regular {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   color: var(--black-90);
+}
+
+.title_light {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--black-75);
+}
+
+.market__body {
+  padding: 24px 0 32px 0;
 }

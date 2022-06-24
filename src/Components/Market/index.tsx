@@ -10,10 +10,12 @@ import Title from "./Title";
 const Market = () => {
   const cn = classNames.bind(styles);
   return (
-    <section>
+    <section className={cn("market")}>
       <Header />
       <div className={cn("container")}>
-        <Title variant="semi-bold" text="Перспективные захоронения" />
+        <div className={cn("market__body")}>
+          <Title variant="regular" text="Перспективные захоронения" />
+        </div>
       </div>
     </section>
   );
