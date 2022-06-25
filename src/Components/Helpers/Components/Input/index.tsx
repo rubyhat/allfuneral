@@ -1,5 +1,4 @@
 import classNames from "classnames/bind";
-import { ChangeEventHandler } from "react";
 import styles from "./styles.module.scss";
 
 interface IInput {
