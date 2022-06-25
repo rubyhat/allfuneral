@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { Button } from "../Helpers/Components";
 import classNames from "classnames/bind";
 
-import close from "../Assets/Icons/Common/Close.svg";
+import { iconClose } from "../Helpers/Icons";
 
 interface IFile {
   image: string;
@@ -91,7 +91,7 @@ const AddImage = () => {
           onClick={() => handleDeleteImageFromPreciew(file)}
           className={cn("add-image__delete")}
         >
-          <img src={close} alt="delete" />
+          <img src={iconClose} alt="delete" />
         </div>
         <img
           className={cn("add-image__image")}
@@ -135,7 +135,9 @@ const AddImage = () => {
   return (
     <div className={cn("add-image-wrap")}>
       <h5 className={cn("add-image__title")}>Приложенные фото</h5>
-      <div className={cn("add-image__preview")}>{images}</div>
+      {images.length > 0 && (
+        <div className={cn("add-image__preview")}>{images}</div>
+      )}
       <div className={cn("add-image")}>
         {fileRejectionItems.length > 0 && (
           <div className={cn("add-image__error-wrap")}>

@@ -4,13 +4,14 @@
   font-weight: 300;
   color: var(--black-75);
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .add-image__preview {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 20px 0;
+  padding-bottom: 20px;
 }
 
 .add-image__card {

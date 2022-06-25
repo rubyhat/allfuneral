@@ -1,3 +1,12 @@
+.market {
+  display: flex;
+}
+
+.market__content {
+  width: 100%;
+  box-shadow: -15px 0px 20px rgba(0, 0, 0, 0.05);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -120,4 +129,46 @@
   border: none;
   width: 100%;
   height: 1px;
+}
+
+.aside {
+  width: 224px;
+  background-color: var(--black-5);
+}
+
+.aside__header {
+  padding: 20px;
+  color: var(--black-75);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.aside__title {
+  font-size: 1rem;
+  line-height: 26px;
+  margin-bottom: 2px;
+}
+
+.aside__subtitle {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.aside__list-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: var(--grey);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 333ms ease;
+  img {
+    margin-right: 12px;
+  }
+  &:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
 }

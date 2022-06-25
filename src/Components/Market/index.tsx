@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 import React, { useEffect, useState } from "react";
 import { COMPANIES_URL, COMPANIES_CONTACTS_URL } from "../../Constants";
 import AddImage from "../AddImage";
+import Aside from "./Aside";
 
 import Header from "./Header";
 import InfoBlock from "./InfoBlock";
@@ -119,29 +120,32 @@ const Market = () => {
 
   return (
     <section className={cn("market")}>
-      <Header />
-      <div className={cn("container")}>
-        <div className={cn("market__body")}>
-          <Title
-            variant="regular"
-            text="Перспективные захоронения"
-            label="Организация"
-          />
-          {!parsedAbout && (
-            <p>Loading... Здесь мог бы быть скелетон или спиннер...</p>
-          )}
-          {parsedAbout && (
-            <InfoBlock title="Общая информация" data={parsedAbout} />
-          )}
-          <hr className={cn("hr")} />
-          {!parsedAbout && (
-            <p>Loading... Здесь мог бы быть скелетон или спиннер...</p>
-          )}
-          {parsedContacts && (
-            <InfoBlock title="Контактные данные" data={parsedContacts} />
-          )}
-          <hr className={cn("hr")} />
-          <AddImage />
+      <Aside />
+      <div className={cn("market__content")}>
+        <Header />
+        <div className={cn("container")}>
+          <div className={cn("market__body")}>
+            <Title
+              variant="regular"
+              text="Перспективные захоронения"
+              label="Организация"
+            />
+            {!parsedAbout && (
+              <p>Loading... Здесь мог бы быть скелетон или спиннер...</p>
+            )}
+            {parsedAbout && (
+              <InfoBlock title="Общая информация" data={parsedAbout} />
+            )}
+            <hr className={cn("hr")} />
+            {!parsedAbout && (
+              <p>Loading... Здесь мог бы быть скелетон или спиннер...</p>
+            )}
+            {parsedContacts && (
+              <InfoBlock title="Контактные данные" data={parsedContacts} />
+            )}
+            <hr className={cn("hr")} />
+            <AddImage />
+          </div>
         </div>
       </div>
     </section>
