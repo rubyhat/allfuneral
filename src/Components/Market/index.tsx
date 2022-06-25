@@ -2,6 +2,7 @@ import axios from "axios";
 import classNames from "classnames/bind";
 import React, { useEffect, useState } from "react";
 import { COMPANIES_URL, COMPANIES_CONTACTS_URL } from "../../Constants";
+import AddImage from "../AddImage";
 
 import Header from "./Header";
 import InfoBlock from "./InfoBlock";
@@ -140,6 +141,7 @@ const Market = () => {
             <InfoBlock title="Контактные данные" data={parsedContacts} />
           )}
           <hr className={cn("hr")} />
+          <AddImage />
         </div>
       </div>
     </section>
