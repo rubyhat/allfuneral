@@ -145,6 +145,7 @@ const Market = () => {
             )}
             <hr className={cn("hr")} />
             <AddImage />
+            <hr className={cn("hr")} />
           </div>
         </div>
       </div>

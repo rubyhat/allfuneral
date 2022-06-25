@@ -25,7 +25,7 @@ const SideMenu = () => {
           <Link className={cn("menu__link", "menu__link_active")} to="/market">
             <img src={iconMarket} alt="icon" />
           </Link>
-          <Link className={cn("menu__link")} to="/">
+          <Link className={cn("menu__link")} to="/search">
             <img src={iconSearch} alt="icon" />
           </Link>
         </div>

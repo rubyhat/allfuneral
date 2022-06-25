@@ -106,10 +106,16 @@ h6 {
 }
 
 .wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper__content {
   display: flex;
 }
 
-.wrapper,
+.wrapper__content,
 .content {
   flex-grow: 1;
   position: relative;
