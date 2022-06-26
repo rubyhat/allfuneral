@@ -173,3 +173,50 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   }
 }
+
+.form__title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--black-75);
+  margin-bottom: 1rem;
+}
+
+.form__text {
+  max-width: 270px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--black-75);
+  margin-bottom: 50px;
+}
+
+.form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.form__button {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  background-color: var(--white);
+  border: none;
+  color: var(--black-30);
+  transition: all 333ms ease;
+  opacity: 1;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.form__button_active {
+  color: var(--accent);
+}
+
+.form__input-wrap {
+  margin-bottom: 1rem;
+}

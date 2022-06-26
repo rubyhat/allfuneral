@@ -5,9 +5,11 @@ interface IInput {
   value: string;
   setValue: (value: string) => void;
   label?: string;
+  type?: string;
+  placeholder?: string;
 }
 
-const Input = ({ value, setValue, label }: IInput) => {
+const Input = ({ value, setValue, label, type, placeholder }: IInput) => {
   const cn = classNames.bind(styles);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,8 +22,8 @@ const Input = ({ value, setValue, label }: IInput) => {
       </label>
       <input
         className={cn("input__field")}
-        placeholder="Empty input regular"
-        type="text"
+        placeholder={placeholder ?? "Empty input regular"}
+        type={type ?? "text"}
         maxLength={255}
         value={value}
         onChange={(event) => handleInputChange(event)}

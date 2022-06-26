@@ -1,24 +1,25 @@
 import classNames from "classnames/bind";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Modal from "../Helpers/Modal";
+import EditModalContent from "./EditModalContent";
 
 import styles from "./styles.module.scss";
 import Title from "./Title";
 
-interface IInfoBlock {
-  title: string;
-  data: any;
-}
+import { IInfoBlock, IDataItem } from "./interfaces";
 
-interface IDataItem {
-  key: string;
-  value: string;
-}
-
-const InfoBlock = ({ title, data }: IInfoBlock) => {
+const InfoBlock = ({ title, data, editData }: IInfoBlock) => {
   const cn = classNames.bind(styles);
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className={cn("info-block")}>
-      <Title variant="light" text={title} />
+      <Title
+        onClick={() => setShowModal(true)}
+        variant="light"
+        text={title}
+        useModal={true}
+      />
       <ul className={cn("info-block__list")}>
         {data &&
           data.map((item: IDataItem, key: number) => (
@@ -28,6 +29,16 @@ const InfoBlock = ({ title, data }: IInfoBlock) => {
             </li>
           ))}
       </ul>
+      {showModal && (
+        <Modal className={cn("edit-modal")}>
+          <EditModalContent
+            title={title}
+            data={data}
+            editData={editData}
+            hideModal={() => setShowModal(false)}
+          />
+        </Modal>
+      )}
     </div>
   );
 };

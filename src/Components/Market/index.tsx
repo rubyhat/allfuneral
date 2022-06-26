@@ -11,41 +11,8 @@ import InfoBlock from "./InfoBlock";
 import styles from "./styles.module.scss";
 import Title from "./Title";
 
-interface IInfoContract {
-  no: string;
-  issue_date: string;
-}
-
-interface IInfoPhotos {
-  name: string;
-  filepath: string;
-  thumbpath: string;
-}
-
-interface IInfo {
-  id: string;
-  contactId: string;
-  name: string;
-  shortName: string;
-  businessEntity: string;
-  contract: IInfoContract;
-  type: string[];
-  status: string;
-  createdAt: string;
-  updatedAt: string;
-  photos: IInfoPhotos[];
-}
-
-interface IContacts {
-  id: string;
-  lastname: string;
-  firstname: string;
-  patronymic: string;
-  phone: string;
-  email: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { IInfo, IContacts } from "./interfaces";
+import RequestService from "../../Services/RequestService";
 
 const Market = () => {
   const cn = classNames.bind(styles);
@@ -55,21 +22,16 @@ const Market = () => {
   const [parsedContacts, setParsedContacts] = useState<object>();
 
   useEffect(() => {
-    axios({
-      method: "GET",
-      url: COMPANIES_URL + "/12",
-    })
-      .then((res) => {
-        console.log(res);
-        setInfo(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    RequestService.getResponse(COMPANIES_URL + "/12", setInfo);
   }, []);
 
   useEffect(() => {
     if (info) {
+      RequestService.getResponse(
+        COMPANIES_CONTACTS_URL + "/" + info.contactId,
+        setContacts
+      );
+
       const parseDataAbout = [
         { key: "Полное название", value: info.name },
         {
@@ -89,27 +51,11 @@ const Market = () => {
   }, [info]);
 
   useEffect(() => {
-    if (info) {
-      axios({
-        method: "GET",
-        url: COMPANIES_CONTACTS_URL + "/" + info.contactId,
-      })
-        .then((res) => {
-          console.log(res);
-          setContacts(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [info]);
-
-  useEffect(() => {
     if (contacts) {
       const parseDataContacts = [
         {
           key: "ФИО",
-          value: `${contacts.lastname} ${contacts.firstname}`,
+          value: `${contacts.lastname} ${contacts.firstname} ${contacts.patronymic}`,
         },
         { key: "Телефон", value: contacts.phone },
         { key: "Эл.почта", value: contacts.email },
@@ -129,19 +75,28 @@ const Market = () => {
               variant="regular"
               text="Перспективные захоронения"
               label="Организация"
+              useModal={false}
             />
             {!parsedAbout && (
               <p>Loading... Здесь мог бы быть скелетон или спиннер...</p>
             )}
-            {parsedAbout && (
-              <InfoBlock title="Общая информация" data={parsedAbout} />
+            {parsedAbout && info && (
+              <InfoBlock
+                title="Общая информация"
+                data={parsedAbout}
+                editData={info}
+              />
             )}
             <hr className={cn("hr")} />
             {!parsedAbout && (
               <p>Loading... Здесь мог бы быть скелетон или спиннер...</p>
             )}
-            {parsedContacts && (
-              <InfoBlock title="Контактные данные" data={parsedContacts} />
+            {parsedContacts && contacts && (
+              <InfoBlock
+                title="Контактные данные"
+                data={parsedContacts}
+                editData={contacts}
+              />
             )}
             <hr className={cn("hr")} />
             <AddImage />

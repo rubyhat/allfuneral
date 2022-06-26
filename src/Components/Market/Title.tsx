@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import { iconEdit } from "../Helpers/Icons";
 import Input from "../Helpers/Components/Input";
 import { Button } from "../Helpers/Components";
+import Modal from "../Helpers/Modal";
 
 const variants = ["regular", "light"];
 
@@ -12,9 +13,11 @@ interface ITitle {
   variant: "regular" | "light";
   text: string;
   label?: string;
+  useModal: boolean;
+  onClick?: () => void;
 }
 
-const Title: FC<ITitle> = ({ variant, text, label }) => {
+const Title: FC<ITitle> = ({ variant, text, label, useModal, onClick }) => {
   const cn = classNames.bind(styles);
   const [value, setValue] = useState(text);
   const [isEditing, setIsEditing] = useState(false);
@@ -23,7 +26,7 @@ const Title: FC<ITitle> = ({ variant, text, label }) => {
   if (variant) rootClasses.push(`title_${variant}`);
 
   const handleEditClick = () => {
-    setIsEditing(true);
+    useModal ? onClick && onClick() : setIsEditing(true);
   };
 
   return (
@@ -39,7 +42,7 @@ const Title: FC<ITitle> = ({ variant, text, label }) => {
           </button>
         </h4>
       )}
-      {isEditing && (
+      {isEditing && !useModal && (
         <div className={cn("title__edit")}>
           <Input value={value} setValue={setValue} label={label} />
           <Button

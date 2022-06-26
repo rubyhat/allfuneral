@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import classNames from "classnames/bind";
 
 import styles from "./styles.module.scss";
@@ -10,16 +10,37 @@ import {
   iconRotation,
   iconDelete,
 } from "../Helpers/Icons";
+import Modal from "../Helpers/Modal";
+import DeleteModalContent from "./DeleteModalContent";
 
 const Header = () => {
   const cn = classNames.bind(styles);
+  const [showModal, setShowModal] = useState(false);
 
   const handleButtonClick = (button: string) => {
-    alert(`Fire ${button} click!`);
+    switch (button) {
+      case "Delete":
+        setShowModal(true);
+        break;
+      case "Linked":
+        alert(`Fire ${button} click!`);
+        break;
+      case "Rotation":
+        alert(`Fire ${button} click!`);
+        break;
+      default:
+        alert(`Ooops! Error`);
+        break;
+    }
   };
 
   return (
     <header className={cn("header")}>
+      {showModal && (
+        <Modal className="modal__delete">
+          <DeleteModalContent hideModal={() => setShowModal(false)} />
+        </Modal>
+      )}
       <Link to="/" className={cn("header__link")}>
         <img src={iconLong} alt="icon" />
         <span>К списику юридических лиц</span>
